@@ -1,0 +1,85 @@
+.wx-kanban.wx-aac6Qo5t {
+  display: flex;
+  flex-direction: column;
+  height: 100%;
+  width: 100%;
+  position: relative;
+  background: var(--wx-kanban-bg);
+  overflow: hidden;
+}
+
+.wx-board.wx-aac6Qo5t {
+  flex: 1;
+  padding: 12px;
+  box-sizing: border-box;
+  min-height: 0;
+}
+
+/* the scroll wrapper sits inside the padded board, so the
+   padding stays at the edges and never scrolls away */
+.wx-scroll.wx-aac6Qo5t {
+  height: 100%;
+  overflow-x: auto;
+  overflow-y: hidden;
+}
+
+.wx-content.wx-aac6Qo5t {
+  display: flex;
+  gap: 12px;
+  align-items: stretch;
+  min-height: 100%;
+  box-sizing: border-box;
+}
+
+.wx-board.wx-aac6Qo5t:not(.wx-scroll-board) .wx-content {
+  height: 100%;
+  min-height: 0;
+}
+
+.wx-board.wx-aac6Qo5t:not(.wx-scroll-board) .wx-column:not(.wx-collapsed) {
+  height: 100%;
+  min-height: 0;
+}
+
+.wx-board.wx-aac6Qo5t:not(.wx-scroll-board) .wx-column.wx-collapsed {
+  height: 100%;
+  min-height: 0;
+}
+
+/* board-wide vertical scroll (columnScroll: false) */
+.wx-scroll-board.wx-aac6Qo5t .wx-scroll {
+  overflow-y: auto;
+}
+
+.wx-scroll-board.wx-aac6Qo5t .wx-column {
+  max-height: none;
+  overflow: visible;
+}
+
+.wx-scroll-board.wx-aac6Qo5t .wx-column.wx-collapsed {
+  position: sticky;
+  top: 0;
+  z-index: 1;
+  align-self: flex-start;
+  height: var(--wx-kanban-scroll-height, 100%);
+  max-height: var(--wx-kanban-scroll-height, 100%);
+  overflow: hidden;
+}
+
+.wx-scroll-board.wx-aac6Qo5t .wx-column-cards {
+  overflow: visible;
+  flex: none;
+}
+
+.wx-scroll-board.wx-aac6Qo5t .wx-column-header {
+  position: sticky;
+  top: 0;
+  z-index: 1;
+  background: var(--wx-kanban-column-bg);
+}
+
+/* flexible columns sharing viewport width (fixedColumnWidth: false) */
+.wx-layout-flex.wx-aac6Qo5t .wx-column:not(.wx-collapsed) {
+  flex: 1 1 0;
+  min-width: 240px;
+}

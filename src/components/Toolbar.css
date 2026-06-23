@@ -1,0 +1,8 @@
+.wx-root.wx-aacuJX0A {
+  display: contents;
+}
+
+/* FIXME: separator styles are broken somehow */
+.wx-root.wx-aacuJX0A .wx-toolbar > div.wx-separator {
+  min-height: auto;
+}

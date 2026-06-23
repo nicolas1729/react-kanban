@@ -1,0 +1,44 @@
+.styling-demo {
+  height: 100%;
+  width: 100%;
+}
+
+/* static column.css: stripe headers per column */
+.styling-demo .wx-column.col-todo {
+  background: #eef4ff;
+}
+.styling-demo .wx-column.col-doing {
+  background: #fff5e6;
+}
+.styling-demo .wx-column.col-review {
+  background: #f1eaff;
+}
+.styling-demo .wx-column.col-done {
+  background: #e6f7ec;
+}
+
+/* static card.css: pin a single card with a left accent */
+.styling-demo .wx-card.card-pinned {
+  border-left: 3px solid #f59e0b;
+  background: #fffbeb;
+}
+
+/* dynamic cardCss results: high-priority and completed cards */
+.styling-demo .wx-card.card-high {
+  border-top: 3px solid #ef4444;
+}
+.styling-demo .wx-card.card-complete {
+  opacity: 0.6;
+  background: #f5f5f5;
+}
+
+/* dynamic columnCss result: pulse a column when it is at or over its limit */
+.styling-demo .wx-column.col-full .wx-column-cards {
+  background-image: repeating-linear-gradient(
+    -45deg,
+    #ef4444,
+    #ef4444 1px,
+    transparent 1px,
+    transparent 20px
+  );
+}

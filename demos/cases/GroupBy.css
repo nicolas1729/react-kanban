@@ -1,0 +1,9 @@
+.group-toolbar {
+  display: flex;
+  align-items: center;
+  padding: 10px 10px 0;
+}
+
+.group-toolbar .wx-select {
+  --wx-input-width: 180px;
+}

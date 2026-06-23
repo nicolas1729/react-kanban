@@ -1,0 +1,40 @@
+.wx-avatars.wx-aaec9iwE {
+  display: inline-flex;
+  align-items: center;
+  min-width: 0;
+}
+
+.wx-avatar.wx-aaec9iwE {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: var(--wx-avatar-size);
+  height: var(--wx-avatar-size);
+  margin-left: calc(var(--wx-avatar-size) * -0.25);
+  border: 2px solid var(--wx-kanban-card-bg);
+  border-radius: 50%;
+  background: var(--wx-kanban-avatar-bg);
+  color: var(--wx-color-font);
+  font-size: var(--wx-avatar-font-size);
+  font-weight: var(--wx-font-weight-md);
+  line-height: 1;
+  overflow: hidden;
+  text-transform: uppercase;
+  user-select: none;
+}
+
+.wx-avatar.wx-aaec9iwE:first-child {
+  margin-left: 0;
+}
+
+.wx-image.wx-aaec9iwE {
+  display: block;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.wx-more.wx-aaec9iwE {
+  font-size: calc(var(--wx-avatar-font-size) * 0.85);
+  text-transform: none;
+}

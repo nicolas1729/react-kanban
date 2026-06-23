@@ -1,0 +1,22 @@
+.wx-card.wx-aaaPn59u {
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+  padding: 10px;
+  background: var(--wx-kanban-card-bg);
+  border-radius: var(--wx-border-radius);
+  box-shadow: var(--wx-kanban-card-shadow);
+  cursor: pointer;
+  border-top: 3px solid transparent;
+  touch-action: none;
+  user-select: none;
+}
+
+.wx-card.wx-aaaPn59u:hover {
+  box-shadow: var(--wx-kanban-card-shadow-hover);
+}
+
+.wx-card.wx-aaaPn59u:focus-visible {
+  outline: 2px solid var(--wx-color-primary);
+  outline-offset: 1px;
+}

@@ -1,0 +1,15 @@
+.wx-ghost.wx-aabpM8ZK {
+  position: fixed;
+  top: 0;
+  left: 0;
+  z-index: 10000;
+  pointer-events: none;
+  box-shadow: var(--wx-kanban-card-shadow-drag);
+  border-radius: var(--wx-border-radius);
+  transform-origin: top left;
+  will-change: transform;
+}
+
+.wx-ghost.wx-aabpM8ZK .wx-card {
+  cursor: grabbing;
+}

@@ -1,0 +1,24 @@
+.wx-column-cards.wx-aadmJ6TR {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+  padding: 8px;
+  overflow-y: auto;
+  flex: 1;
+  min-height: 0;
+}
+
+.wx-column-cards.wx-aadmJ6TR > div {
+  flex-shrink: 0;
+}
+
+.wx-drop-placeholder.wx-aadmJ6TR {
+  border: 1px dashed var(--wx-kanban-border-color);
+  border-radius: var(--wx-border-radius);
+  background: var(--wx-kanban-drop-placeholder-bg);
+  box-sizing: border-box;
+}
+
+.wx-dragging.wx-aadmJ6TR {
+  display: none;
+}
