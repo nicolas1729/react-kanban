@@ -5,7 +5,7 @@ import { resolve } from 'path';
 // https://vitejs.dev/config/
 export default defineConfig(({ command, mode }) => {
   // Check if we're building demos
-  const isDemoBuild = process.env.BUILD_DEMOS === 'true';
+  const isDemoBuild = mode === 'demo' || process.env.BUILD_DEMOS === 'true';
   // Check if we're building full CSS
   const isFullCssBuild = process.env.BUILD_FULL_CSS === 'true';
 
