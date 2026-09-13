@@ -13,55 +13,68 @@ import Templates from './cases/Templates.jsx';
 import Locales from './cases/Locales.jsx';
 import Excel from './cases/Excel.jsx';
 import Toolbar from './cases/Toolbar.jsx';
-
+import WorkOrders from './cases/WorkOrders.jsx';
 
 export const links = [
   {
     group: '',
-    items: [['/base/:skin', 'Basic Kanban', BasicInit, { file: 'BasicInit' }]],
+    items: [
+      ['/base/:skin', 'Kanban de base', BasicInit, { file: 'BasicInit' }],
+    ],
   },
   {
-    group: 'Cards',
+    group: 'Cartes',
     items: [
-      ['/templates/:skin', 'Templates', Templates, { file: 'Templates' }],
-      ['/styling/:skin', 'Styling', Styling, { file: 'Styling' }],
+      ['/templates/:skin', 'Gabarits', Templates, { file: 'Templates' }],
+      ['/styling/:skin', 'Style', Styling, { file: 'Styling' }],
       [
         '/performance/:skin',
         'Performance',
         Performance,
         { file: 'Performance' },
       ],
-      ['/layout/:skin', 'Layout', Layout, { file: 'Layout' }],
+      ['/layout/:skin', 'Mise en page', Layout, { file: 'Layout' }],
     ],
   },
   {
-    group: 'Features',
+    group: 'Fonctionnalités',
     items: [
-      ['/filter/:skin', 'Filter Cards', Filter, { file: 'Filter' }],
-      ['/group-by/:skin', 'Group Cards', GroupBy, { file: 'GroupBy' }],
+      ['/filter/:skin', 'Filtrer les cartes', Filter, { file: 'Filter' }],
+      ['/group-by/:skin', 'Regrouper les cartes', GroupBy, { file: 'GroupBy' }],
     ],
   },
   {
     group: 'Configuration',
     items: [
-      ['/tooltip/:skin', 'Tooltip', Tooltip, { file: 'Tooltip' }],
-      ['/card-popup/:skin', 'Card Preview', CardPopup, { file: 'CardPopup' }],
-      ['/card-menu/:skin', 'Card Menu', CardMenu, { file: 'CardMenu' }],
-      ['/editor/:skin', 'Editor', Editor, { file: 'Editor' }],
-      ['/toolbar/:skin', 'Toolbar', Toolbar, { file: 'Toolbar' }],
-      ['/locales/:skin', 'Locales', Locales, { file: 'Locales' }],
+      ['/tooltip/:skin', 'Infobulle', Tooltip, { file: 'Tooltip' }],
+      [
+        '/card-popup/:skin',
+        'Aperçu de carte',
+        CardPopup,
+        { file: 'CardPopup' },
+      ],
+      ['/card-menu/:skin', 'Menu de carte', CardMenu, { file: 'CardMenu' }],
+      ['/editor/:skin', 'Éditeur', Editor, { file: 'Editor' }],
+      ['/toolbar/:skin', 'Barre d’outils', Toolbar, { file: 'Toolbar' }],
+      ['/locales/:skin', 'Langues', Locales, { file: 'Locales' }],
     ],
   },
   {
-    group: 'Integration',
+    group: 'Intégration',
     items: [
       [
         '/save-to-backend/:skin',
-        'Save to Backend',
+        'Sauvegarde côté serveur',
         SaveToBackend,
         { file: 'SaveToBackend' },
       ],
-      ['/excel/:skin', 'Excel Import', Excel, { file: 'Excel' }],
+      ['/excel/:skin', 'Import Excel', Excel, { file: 'Excel' }],
+      [
+        '/work-orders/:skin',
+        'Ordres de travail',
+        WorkOrders,
+        { file: 'WorkOrders' },
+      ],
     ],
   },
 ];
