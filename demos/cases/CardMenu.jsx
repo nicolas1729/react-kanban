@@ -12,7 +12,7 @@ const { columns, cards } = getData();
 
 const options = [
   ...getMenuOptions(),
-  { id: 'my-action', text: 'My action', icon: 'wxi-empty' },
+  { id: 'my-action', text: 'Mon action', icon: 'wxi-empty' },
 ];
 
 function CardMenu() {
@@ -21,7 +21,7 @@ function CardMenu() {
 
   function onClick({ action }) {
     if (action.id === 'my-action') {
-      helpers.showNotice({ text: '`My action` clicked', type: 'success' });
+      helpers.showNotice({ text: '`Mon action` cliquée', type: 'success' });
     }
   }
 

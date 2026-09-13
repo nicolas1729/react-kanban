@@ -19,18 +19,18 @@ function CardPopup({ card, close }) {
   const tagLabelList = useMemo(() => resolveLabels(card.tags), [card.tags]);
 
   function handleAction(action) {
-    alert(`Action: ${action} for "${card.label ?? card.id}"`);
+    alert(`Action : ${action} pour « ${card.label ?? card.id} »`);
     close();
   }
 
   return (
     <div className="card-popup">
       <div className="popup-header">
-        <div className="popup-title">{card.label ?? `Card ${card.id}`}</div>
+        <div className="popup-title">{card.label ?? `Carte ${card.id}`}</div>
         <button
           type="button"
           className="popup-close"
-          aria-label="Close"
+          aria-label="Fermer"
           onClick={close}
         >
           &times;
@@ -45,13 +45,13 @@ function CardPopup({ card, close }) {
         )}
         {priorityLabel && (
           <div className="popup-row">
-            <span className="popup-label">Priority</span>
+            <span className="popup-label">Priorité</span>
             <span className="popup-value">{priorityLabel}</span>
           </div>
         )}
         {typeof card.progress === 'number' && (
           <div className="popup-row">
-            <span className="popup-label">Progress</span>
+            <span className="popup-label">Progression</span>
             <span className="popup-value">
               {Math.round(card.progress * 100)}%
             </span>
@@ -59,13 +59,13 @@ function CardPopup({ card, close }) {
         )}
         {userLabelList.length > 0 && (
           <div className="popup-row">
-            <span className="popup-label">Users</span>
+            <span className="popup-label">Utilisateurs</span>
             <span className="popup-value">{userLabelList.join(', ')}</span>
           </div>
         )}
         {tagLabelList.length > 0 && (
           <div className="popup-row">
-            <span className="popup-label">Tags</span>
+            <span className="popup-label">Étiquettes</span>
             <span className="popup-value">{tagLabelList.join(', ')}</span>
           </div>
         )}
@@ -76,14 +76,14 @@ function CardPopup({ card, close }) {
           className="btn btn-primary"
           onClick={() => handleAction('open')}
         >
-          Open
+          Ouvrir
         </button>
         <button
           type="button"
           className="btn btn-secondary"
           onClick={() => handleAction('share')}
         >
-          Share
+          Partager
         </button>
       </div>
     </div>

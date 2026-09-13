@@ -16,8 +16,8 @@ function Excel() {
 
   async function toExcel() {
     const columns = [
-      { label: 'Title', id: 'label', width: 30 },
-      { label: 'Deadline', id: 'deadline' },
+      { label: 'Titre', id: 'label', width: 30 },
+      { label: 'Échéance', id: 'deadline' },
       { label: 'Description', id: 'description', width: 50 },
     ];
 
@@ -39,8 +39,8 @@ function Excel() {
     <>
       <Layout>
         <div className="toolbar">
-          <Button onClick={toExcel}>Export to Excel</Button>
-          <Button onClick={fromExcelStart}>Import from Excel</Button>
+          <Button onClick={toExcel}>Exporter vers Excel</Button>
+          <Button onClick={fromExcelStart}>Importer depuis Excel</Button>
         </div>
         <Kanban
           init={(obj) => setApi(obj)}
@@ -54,8 +54,8 @@ function Excel() {
       {importVisible && (
         <ExcelImport
           fields={[
-            { label: 'Title', id: 'label' },
-            { label: 'Deadline', id: 'deadline' },
+            { label: 'Titre', id: 'label' },
+            { label: 'Échéance', id: 'deadline' },
             { label: 'Description', id: 'description' },
           ]}
           generateIds={true}

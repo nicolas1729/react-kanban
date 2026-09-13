@@ -21,7 +21,7 @@ const { columns, cards } = getData();
 const fields = [
   {
     id: 'label',
-    label: 'Label',
+    label: 'Libellé',
     type: 'text',
   },
   {
@@ -31,18 +31,17 @@ const fields = [
   },
   {
     id: 'priority',
-    label: 'Priority',
+    label: 'Priorité',
     type: 'number',
   },
   {
     id: 'column',
-    label: 'Column',
+    label: 'Colonne',
     type: 'text',
   },
 ];
 
-const url =
-  'https://kanban-backend.svar.dev/text-to-json';
+const url = 'https://kanban-backend.svar.dev/text-to-json';
 
 function Filter() {
   const helpers = useContext(context.helpers);
@@ -63,7 +62,7 @@ function Filter() {
     const json = await response.json();
     if (!response.ok) {
       helpers.showNotice({
-        text: json.error || 'Request failed',
+        text: json.error || 'Échec de la requête',
         type: 'danger',
       });
       return null;
@@ -117,9 +116,9 @@ function Filter() {
           value={mode}
           onChange={({ value }) => setMode(value)}
           options={[
-            { id: 'plain', label: 'Plain' },
-            { id: 'query', label: 'Query' },
-            { id: 'builder', label: 'Builder' },
+            { id: 'plain', label: 'Simple' },
+            { id: 'query', label: 'Requête' },
+            { id: 'builder', label: 'Générateur' },
           ]}
         />
         {mode === 'plain' && (
@@ -130,7 +129,7 @@ function Filter() {
             value={textValue}
             fields={fields}
             onChange={applyQueryFilter}
-            placeholder="type your query as plain text"
+            placeholder="saisissez votre requête en texte libre"
           />
         )}
         {mode === 'builder' && (

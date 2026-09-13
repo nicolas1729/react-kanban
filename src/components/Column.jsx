@@ -14,7 +14,6 @@ function Column(props) {
     cardContent,
     cardShape,
     contentVisible,
-    requestVisible,
     virtualizeCards,
     estimatedCardHeight,
     cardOverscan,
@@ -74,7 +73,6 @@ function Column(props) {
 
     return () => registerColumn(id, null);
   }, [registerColumn, column.id]);
-
 
   const sectionClassName = [
     'wx-column',

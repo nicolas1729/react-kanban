@@ -44,20 +44,20 @@ const columnLabels = {
 };
 
 const options = [
-  { id: 'en', label: 'English' },
-  { id: 'cn', label: 'Chinese' },
-  { id: 'de', label: 'German' },
-  { id: 'es', label: 'Spanish' },
-  { id: 'fr', label: 'French' },
-  { id: 'it', label: 'Italian' },
-  { id: 'jp', label: 'Japanese' },
-  { id: 'pt', label: 'Portuguese' },
-  { id: 'ru', label: 'Russian' },
+  { id: 'en', label: 'Anglais' },
+  { id: 'cn', label: 'Chinois' },
+  { id: 'de', label: 'Allemand' },
+  { id: 'es', label: 'Espagnol' },
+  { id: 'fr', label: 'Français' },
+  { id: 'it', label: 'Italien' },
+  { id: 'jp', label: 'Japonais' },
+  { id: 'pt', label: 'Portugais' },
+  { id: 'ru', label: 'Russe' },
 ];
 
 function Locales() {
   const [api, setApi] = useState(null);
-  const [locale, setLocale] = useState('en');
+  const [locale, setLocale] = useState('fr');
 
   const words = useMemo(
     () => ({

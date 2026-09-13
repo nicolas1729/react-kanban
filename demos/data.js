@@ -20,16 +20,16 @@ export const card = {
 
 export function getData() {
   const columns = [
-    { id: 'todo', label: 'To Do' },
-    { id: 'doing', label: 'In Progress', cardLimit: 2, addCard: false },
-    { id: 'done', label: 'Done', addCard: false },
+    { id: 'todo', label: 'À faire' },
+    { id: 'doing', label: 'En cours', cardLimit: 2, addCard: false },
+    { id: 'done', label: 'Terminé', addCard: false },
   ];
 
   const cards = [
     {
       id: 1,
-      label: 'Draft kanban spec',
-      description: 'Cover model, state, and data flow',
+      label: 'Rédiger la spécification kanban',
+      description: 'Couvrir le modèle, l’état et le flux de données',
       column: 'done',
       cover: './assets/cover-njov.webp',
       priority: 2,
@@ -43,8 +43,8 @@ export function getData() {
     },
     {
       id: 2,
-      label: 'Implement store',
-      description: 'Cards store + reactive projection',
+      label: 'Implémenter le store',
+      description: 'Store de cartes + projection réactive',
       column: 'doing',
       priority: 3,
       progress: 0.6,
@@ -56,8 +56,9 @@ export function getData() {
     },
     {
       id: 3,
-      label: 'Render board',
-      description: 'Wire up the widget shell and column layout',
+      label: 'Afficher le tableau',
+      description:
+        'Assembler le shell du widget et la mise en page des colonnes',
       column: 'doing',
       cover: './assets/cover-nkeo.webp',
       priority: 3,
@@ -69,8 +70,9 @@ export function getData() {
     },
     {
       id: 4,
-      label: 'Hook up editor',
-      description: 'Bind editor form to update-card action',
+      label: 'Connecter l’éditeur',
+      description:
+        'Relier le formulaire de l’éditeur à l’action de mise à jour de carte',
       column: 'todo',
       priority: 1,
       deadline: new Date(Date.now() + 3 * 24 * 60 * 60 * 1000),
@@ -86,16 +88,16 @@ export function getData() {
 
 const groupByStages = [
   { id: 'backlog', label: 'Backlog' },
-  { id: 'todo', label: 'To Do' },
-  { id: 'doing', label: 'In Progress' },
-  { id: 'review', label: 'Review' },
-  { id: 'done', label: 'Done' },
+  { id: 'todo', label: 'À faire' },
+  { id: 'doing', label: 'En cours' },
+  { id: 'review', label: 'Révision' },
+  { id: 'done', label: 'Terminé' },
 ];
 
 const groupByPriorities = [
-  { id: 1, label: 'Low', css: 'wx-card-priority-low' },
-  { id: 2, label: 'Medium', css: 'wx-card-priority-medium' },
-  { id: 3, label: 'High', css: 'wx-card-priority-high' },
+  { id: 1, label: 'Faible', css: 'wx-card-priority-low' },
+  { id: 2, label: 'Moyenne', css: 'wx-card-priority-medium' },
+  { id: 3, label: 'Élevée', css: 'wx-card-priority-high' },
 ];
 
 export function getGroupByData() {
@@ -117,8 +119,8 @@ export function getGroupByData() {
   const cards = [
     {
       id: 1,
-      label: 'Collect launch feedback',
-      description: 'Summarize recurring requests from beta accounts',
+      label: 'Collecter les retours de lancement',
+      description: 'Résumer les demandes récurrentes des comptes bêta',
       stage: 'backlog',
       priority: 2,
       progress: 0.1,
@@ -128,8 +130,9 @@ export function getGroupByData() {
     },
     {
       id: 2,
-      label: 'Refresh onboarding board',
-      description: 'Update default lanes and starter tasks',
+      label: 'Actualiser le tableau d’onboarding',
+      description:
+        'Mettre à jour les colonnes par défaut et les tâches de démarrage',
       stage: 'todo',
       priority: 1,
       progress: 0.2,
@@ -139,8 +142,8 @@ export function getGroupByData() {
     },
     {
       id: 3,
-      label: 'Design priority swimlane view',
-      description: 'Check card density and column labels',
+      label: 'Concevoir la vue par couloir de priorité',
+      description: 'Vérifier la densité des cartes et les libellés de colonnes',
       stage: 'doing',
       priority: 3,
       progress: 0.5,
@@ -150,8 +153,8 @@ export function getGroupByData() {
     },
     {
       id: 4,
-      label: 'Review account ownership',
-      description: 'Validate that each customer card has one owner',
+      label: 'Vérifier la propriété des comptes',
+      description: 'Valider que chaque carte client a un seul propriétaire',
       stage: 'review',
       priority: 2,
       progress: 0.8,
@@ -160,8 +163,8 @@ export function getGroupByData() {
     },
     {
       id: 5,
-      label: 'Ship updated examples',
-      description: 'Publish docs after QA signs off',
+      label: 'Publier les exemples mis à jour',
+      description: 'Publier la documentation après validation QA',
       stage: 'done',
       priority: 1,
       progress: 1,
@@ -171,8 +174,8 @@ export function getGroupByData() {
     },
     {
       id: 6,
-      label: 'Prepare stakeholder review',
-      description: 'Pull together screenshots and open questions',
+      label: 'Préparer la revue avec les parties prenantes',
+      description: 'Rassembler captures d’écran et questions ouvertes',
       stage: 'todo',
       priority: 3,
       progress: 0.35,
@@ -182,8 +185,8 @@ export function getGroupByData() {
     },
     {
       id: 7,
-      label: 'Audit release checklist',
-      description: 'Confirm owners, deadlines, and rollout notes',
+      label: 'Auditer la checklist de release',
+      description: 'Confirmer propriétaires, échéances et notes de déploiement',
       stage: 'doing',
       priority: 2,
       progress: 0.65,
@@ -193,8 +196,8 @@ export function getGroupByData() {
     },
     {
       id: 8,
-      label: 'Close stale support threads',
-      description: 'Mark resolved issues and escalate blockers',
+      label: 'Clore les tickets de support obsolètes',
+      description: 'Marquer les problèmes résolus et escalader les blocages',
       stage: 'review',
       priority: 1,
       progress: 0.9,
@@ -209,15 +212,15 @@ export function getGroupByData() {
 
 export function getStyledData() {
   const columns = [
-    { id: 'todo', label: 'To Do', css: 'col-todo' },
-    { id: 'doing', label: 'In Progress', css: 'col-doing', cardLimit: 3 },
-    { id: 'done', label: 'Done', css: 'col-done' },
+    { id: 'todo', label: 'À faire', css: 'col-todo' },
+    { id: 'doing', label: 'En cours', css: 'col-doing', cardLimit: 3 },
+    { id: 'done', label: 'Terminé', css: 'col-done' },
   ];
 
   const cards = [
     {
       id: 1,
-      label: 'Draft kanban spec',
+      label: 'Rédiger la spécification kanban',
       column: 'done',
       priority: 2,
       progress: 1,
@@ -225,14 +228,14 @@ export function getStyledData() {
     },
     {
       id: 2,
-      label: 'Implement store',
+      label: 'Implémenter le store',
       column: 'doing',
       priority: 3,
       progress: 0.6,
     },
     {
       id: 3,
-      label: 'Render board',
+      label: 'Afficher le tableau',
       column: 'doing',
       priority: 3,
       progress: 0.3,
@@ -240,28 +243,28 @@ export function getStyledData() {
     },
     {
       id: 4,
-      label: 'Hook up editor',
+      label: 'Connecter l’éditeur',
       column: 'doing',
       priority: 1,
       progress: 0,
     },
     {
       id: 5,
-      label: 'Review styling',
+      label: 'Revoir le style',
       column: 'done',
       priority: 2,
       progress: 1,
     },
     {
       id: 6,
-      label: 'Polish docs',
+      label: 'Peaufiner la documentation',
       column: 'todo',
       priority: 1,
       progress: 0,
     },
     {
       id: 7,
-      label: 'Triage feedback',
+      label: 'Trier les retours',
       column: 'todo',
       priority: 2,
       progress: 0,
@@ -274,10 +277,10 @@ export function getStyledData() {
 
 const generatedColumns = [
   { id: 'backlog', label: 'Backlog' },
-  { id: 'todo', label: 'To Do' },
-  { id: 'doing', label: 'In Progress' },
-  { id: 'review', label: 'Review' },
-  { id: 'done', label: 'Done' },
+  { id: 'todo', label: 'À faire' },
+  { id: 'doing', label: 'En cours' },
+  { id: 'review', label: 'Révision' },
+  { id: 'done', label: 'Terminé' },
 ];
 
 export function getGeneratedData(cardsPerColumn = 25) {
@@ -288,8 +291,8 @@ export function getGeneratedData(cardsPerColumn = 25) {
 
       return {
         id,
-        label: `Generated card ${id}`,
-        description: `Generated card ${cardIndex + 1} in ${column.label}`,
+        label: `Carte générée ${id}`,
+        description: `Carte générée ${cardIndex + 1} dans ${column.label}`,
         column: column.id,
         priority: (cardIndex % 3) + 1,
         progress: ((cardIndex % 10) + 1) / 10,

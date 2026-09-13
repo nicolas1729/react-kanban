@@ -8,8 +8,8 @@ import {
 } from 'react';
 import { ContextMenu } from '@svar-ui/react-menu';
 import { getID, locale } from '@svar-ui/lib-dom';
-import { en as coreEn } from '@svar-ui/core-locales';
-import { en } from '@svar-ui/kanban-locales';
+import { fr as coreFr } from '@svar-ui/core-locales';
+import { fr } from '@svar-ui/kanban-locales';
 import { context } from '@svar-ui/react-core';
 import { getMenuOptions } from '@svar-ui/kanban-store';
 import { KanbanApiContext } from '../context.js';
@@ -33,7 +33,7 @@ const KanbanContextMenu = forwardRef(function KanbanContextMenu(props, ref) {
 
   let l = useContext(context.i18n);
   if (!l) {
-    l = locale({ ...en, ...coreEn });
+    l = locale({ ...fr, ...coreFr });
   }
 
   const _ = l.getGroup('kanban');

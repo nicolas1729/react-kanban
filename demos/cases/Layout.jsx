@@ -38,25 +38,25 @@ function LayoutDemo() {
           flexDirection: 'row',
         }}
       >
-        <Field label="Fixed column width" position="left">
+        <Field label="Largeur de colonne fixe" position="left">
           <Switch
             value={fixedColumnWidth}
             onChange={({ value }) => setFixedColumnWidth(value)}
           />
         </Field>
-        <Field label="More columns" position="left">
+        <Field label="Plus de colonnes" position="left">
           <Switch
             value={manyColumns}
             onChange={({ value }) => setManyColumns(value)}
           />
         </Field>
-        <Field label="More cards" position="left">
+        <Field label="Plus de cartes" position="left">
           <Switch
             value={manyCards}
             onChange={({ value }) => setManyCards(value)}
           />
         </Field>
-        <Field label="Per column scroll" position="left">
+        <Field label="Défilement par colonne" position="left">
           <Switch
             value={perColumnScroll}
             onChange={({ value }) => setPerColumnScroll(value)}

@@ -146,7 +146,7 @@ function DemoExplorerContent({
               <a href={githubLink} target="_blank" rel="noopener noreferrer">
                 <Button type="secondary" css="toggle-btn">
                   <img src={GitHubLogoIcon} alt="GitHub icon" />
-                  See code on GitHub
+                  Voir le code sur GitHub
                 </Button>
               </a>
             </div>

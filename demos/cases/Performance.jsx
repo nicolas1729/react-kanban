@@ -45,7 +45,7 @@ function splitCardsByColumn(columnsCount, totalCards) {
 function generate(columnsCount, totalCards) {
   const columns = Array.from({ length: columnsCount }, (_, i) => ({
     id: `col-${i + 1}`,
-    label: `Column ${i + 1}`,
+    label: `Colonne ${i + 1}`,
   }));
   const cardCounts = splitCardsByColumn(columnsCount, totalCards);
   let nextId = 1;
@@ -56,13 +56,13 @@ function generate(columnsCount, totalCards) {
 
       return {
         id,
-        label: `Generated card ${id}`,
-        description: `Generated card ${id} in ${column.label}`,
+        label: `Carte générée ${id}`,
+        description: `Carte générée ${id} dans ${column.label}`,
         column: column.id,
         priority: ((id - 1) % 3) + 1,
         progress: (((id - 1) % 10) + 1) / 10,
         tags: [`group-${columnIndex + 1}`],
-        users: [{ id: userId, name: `User ${userId}` }],
+        users: [{ id: userId, name: `Utilisateur ${userId}` }],
       };
     }),
   );
@@ -85,7 +85,7 @@ function Performance() {
         const duration = performance.now() - start;
         showNotice({
           type: 'info',
-          text: `Kanban render: ${duration.toFixed(2)}ms (${newData.cards.length} cards, ${newData.columns.length} columns)`,
+          text: `Rendu du kanban : ${duration.toFixed(2)}ms (${newData.cards.length} cartes, ${newData.columns.length} colonnes)`,
         });
       }, 0);
     });
@@ -95,7 +95,7 @@ function Performance() {
     <Layout>
       <Cell height={70}>
         <div className="toolbar">
-          <Field label={`Columns: ${numColumns}`} type="slider">
+          <Field label={`Colonnes : ${numColumns}`} type="slider">
             <Slider
               value={numColumns}
               onChange={({ value }) => setNumColumns(value)}
@@ -104,7 +104,7 @@ function Performance() {
               width="240px"
             />
           </Field>
-          <Field label={`Cards: ${numCards}`} type="slider">
+          <Field label={`Cartes : ${numCards}`} type="slider">
             <Slider
               value={numCards}
               onChange={({ value }) => setNumCards(value)}
@@ -114,7 +114,7 @@ function Performance() {
             />
           </Field>
           <Button type="primary" onClick={reload}>
-            Reload
+            Recharger
           </Button>
         </div>
       </Cell>

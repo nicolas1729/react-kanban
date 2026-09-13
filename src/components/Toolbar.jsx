@@ -1,8 +1,8 @@
 import { useState, useEffect, useMemo, useContext } from 'react';
 import { Toolbar } from '@svar-ui/react-toolbar';
 import { locale } from '@svar-ui/lib-dom';
-import { en } from '@svar-ui/kanban-locales';
-import { en as coreEn } from '@svar-ui/core-locales';
+import { fr } from '@svar-ui/kanban-locales';
+import { fr as coreFr } from '@svar-ui/core-locales';
 import { getToolbarItems } from '@svar-ui/kanban-store';
 import { context } from '@svar-ui/react-core';
 import './Toolbar.css';
@@ -30,7 +30,7 @@ function ToolbarComponent(props) {
 
   let l = useContext(context.i18n);
   if (!l) {
-    l = locale({ ...en, ...coreEn });
+    l = locale({ ...fr, ...coreFr });
   }
   const _ = l.getGroup('kanban');
 

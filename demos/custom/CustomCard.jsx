@@ -52,7 +52,7 @@ function CustomCard({ card }) {
       </div>
 
       <strong className="custom-card-title">
-        {card.label ?? `Card ${card.id}`}
+        {card.label ?? `Carte ${card.id}`}
       </strong>
 
       {card.description && (
@@ -60,16 +60,16 @@ function CustomCard({ card }) {
       )}
 
       <div className="custom-card-progress-row">
-        <div className="custom-card-progress" aria-label="progress">
+        <div className="custom-card-progress" aria-label="progression">
           <span style={{ width: progress + '%' }}></span>
         </div>
         <span className="custom-card-progress-value">{progress}%</span>
       </div>
 
       <div className="custom-card-meta">
-        {userCount > 0 && <span>{userCount} users</span>}
-        {attachmentCount > 0 && <span>{attachmentCount} files</span>}
-        {commentCount > 0 && <span>{commentCount} comments</span>}
+        {userCount > 0 && <span>{userCount} utilisateurs</span>}
+        {attachmentCount > 0 && <span>{attachmentCount} fichiers</span>}
+        {commentCount > 0 && <span>{commentCount} commentaires</span>}
       </div>
     </div>
   );

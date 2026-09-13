@@ -13,7 +13,7 @@ const zoomLevels = [
   { id: 3, label: 'M' },
   { id: 4, label: 'L' },
   { id: 5, label: 'XL' },
-  { id: 6, label: 'Custom' },
+  { id: 6, label: 'Personnalisé' },
 ];
 
 function Templates() {

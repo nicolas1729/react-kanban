@@ -39,21 +39,21 @@ const cards = rawCards.map((c) => {
         {
           id: 1,
           user: 2,
-          content: "Agenda is ready, let's align on priorities.",
+          content: 'L’ordre du jour est prêt, alignons-nous sur les priorités.',
           date: dayOffset(-1, 10, 0),
         },
         {
           id: 2,
           user: 3,
-          content: "I'll review the draft this afternoon.",
+          content: 'Je relirai le brouillon cet après-midi.',
           date: dayOffset(-1, 14, 30),
         },
       ],
       tasks: [
-        { id: 1, content: 'Outline data flow', status: 1 },
-        { id: 2, content: 'Describe state shape', status: 1 },
-        { id: 3, content: 'Add diagrams', status: 0 },
-        { id: 4, content: 'Review with team', status: 0 },
+        { id: 1, content: 'Décrire le flux de données', status: 1 },
+        { id: 2, content: 'Décrire la structure de l’état', status: 1 },
+        { id: 3, content: 'Ajouter des diagrammes', status: 0 },
+        { id: 4, content: 'Revoir avec l’équipe', status: 0 },
       ],
     };
   }
@@ -62,8 +62,8 @@ const cards = rawCards.map((c) => {
       ...c,
       comments: [],
       tasks: [
-        { id: 1, content: 'Draft store API', status: 0 },
-        { id: 2, content: 'Wire reactive projection', status: 0 },
+        { id: 1, content: 'Ébaucher l’API du store', status: 0 },
+        { id: 2, content: 'Câbler la projection réactive', status: 0 },
       ],
     };
   }
@@ -83,7 +83,7 @@ const items = [
   {
     comp: 'text',
     key: 'label',
-    label: 'Title',
+    label: 'Titre',
     column: 'left',
     required: true,
   },
@@ -105,7 +105,7 @@ const items = [
   {
     key: 'comments',
     comp: 'comments',
-    label: 'Comments',
+    label: 'Commentaires',
     users,
     activeUser: 1,
     column: 'left',
@@ -127,7 +127,7 @@ function EditorDemo() {
       {
         comp: 'button',
         id: 'delete',
-        text: 'Delete',
+        text: 'Supprimer',
         type: 'danger',
         onClick: handleDelete,
       },
@@ -135,13 +135,13 @@ function EditorDemo() {
       {
         comp: 'button',
         id: 'close',
-        text: 'Cancel',
+        text: 'Annuler',
         type: 'default',
       },
       {
         comp: 'button',
         id: 'save',
-        text: 'Done',
+        text: 'Terminé',
         type: 'primary',
       },
     ],
@@ -153,8 +153,8 @@ function EditorDemo() {
     if (!data) return;
     try {
       await showModal({
-        title: 'Delete card?',
-        message: 'This action cannot be undone.',
+        title: 'Supprimer la carte ?',
+        message: 'Cette action est irréversible.',
       });
     } catch {
       return;

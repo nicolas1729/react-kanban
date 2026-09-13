@@ -19,7 +19,7 @@ function CardTooltip({ card }) {
 
   return (
     <div className="card-tooltip">
-      <div className="tooltip-title">{card.label ?? `Card ${card.id}`}</div>
+      <div className="tooltip-title">{card.label ?? `Carte ${card.id}`}</div>
       {card.description && (
         <div className="tooltip-desc">{card.description}</div>
       )}

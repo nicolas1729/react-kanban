@@ -19,8 +19,8 @@ import { DndState } from './useDrag.js';
 import { getCardShape } from '../defaults.js';
 
 // locales
-import { en } from '@svar-ui/kanban-locales';
-import { en as coreEn } from '@svar-ui/core-locales';
+import { fr } from '@svar-ui/kanban-locales';
+import { fr as coreFr } from '@svar-ui/core-locales';
 import { Locale } from '@svar-ui/react-core';
 
 function toHandlerName(action) {
@@ -165,7 +165,7 @@ const Kanban = forwardRef(function Kanban(props, ref) {
   return (
     <KanbanApiContext.Provider value={ctxApiRef.current}>
       <DndContext.Provider value={dnd}>
-        <Locale words={{ ...coreEn, ...en }} optional={true}>
+        <Locale words={{ ...coreFr, ...fr }} optional={true}>
           <Layout
             cardShape={card}
             readonly={readonly}

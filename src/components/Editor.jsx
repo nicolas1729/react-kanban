@@ -1,9 +1,17 @@
 import { useState, useEffect, useMemo, useContext } from 'react';
-import { Editor as EditorBase, registerEditorItem } from '@svar-ui/react-editor';
-import { DatePicker, MultiCombo, RichSelect, Slider } from '@svar-ui/react-core';
+import {
+  Editor as EditorBase,
+  registerEditorItem,
+} from '@svar-ui/react-editor';
+import {
+  DatePicker,
+  MultiCombo,
+  RichSelect,
+  Slider,
+} from '@svar-ui/react-core';
 import { locale } from '@svar-ui/lib-dom';
-import { en } from '@svar-ui/kanban-locales';
-import { en as coreEn } from '@svar-ui/core-locales';
+import { fr } from '@svar-ui/kanban-locales';
+import { fr as coreFr } from '@svar-ui/core-locales';
 import { getEditorItems } from '../defaults.js';
 import { context } from '@svar-ui/react-core';
 import './Editor.css';
@@ -31,7 +39,7 @@ function Editor(props) {
 
   let l = useContext(context.i18n);
   if (!l) {
-    l = locale({ ...en, ...coreEn });
+    l = locale({ ...fr, ...coreFr });
   }
   const _ = l.getGroup('kanban');
 

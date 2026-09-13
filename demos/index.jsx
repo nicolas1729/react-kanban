@@ -20,7 +20,7 @@ import '@svar-ui/react-export-popup/style.css';
 
 const skins = [
   { id: 'willow', label: 'Willow', Component: Willow },
-  { id: 'willow-dark', label: 'Dark', Component: WillowDark },
+  { id: 'willow-dark', label: 'Sombre', Component: WillowDark },
 ];
 
 ReactDOM.createRoot(document.getElementById('root')).render(

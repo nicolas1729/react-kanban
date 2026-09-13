@@ -13,9 +13,9 @@ const {
 } = getGroupByData();
 
 const options = [
-  { id: 'stage', label: 'By stage' },
-  { id: 'priority', label: 'By priority' },
-  { id: 'user', label: 'By person' },
+  { id: 'stage', label: 'Par étape' },
+  { id: 'priority', label: 'Par priorité' },
+  { id: 'user', label: 'Par personne' },
 ];
 
 const card = {
@@ -66,7 +66,7 @@ function GroupBy() {
   return (
     <Layout>
       <div className="group-toolbar">
-        <Field label="Group cards" position="left">
+        <Field label="Regrouper les cartes" position="left">
           <Select value={groupBy} options={options} onChange={changeGroup} />
         </Field>
       </div>
