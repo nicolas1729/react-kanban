@@ -15,7 +15,6 @@ import '@svar-ui/react-comments/style.css';
 import '@svar-ui/react-tasklist/style.css';
 import '@svar-ui/react-layout/style.css';
 import '@svar-ui/react-filter/style.css';
-import '@svar-ui/react-excel-import/style.css';
 import '@svar-ui/react-export-popup/style.css';
 
 const skins = [

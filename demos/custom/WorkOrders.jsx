@@ -1,20 +1,11 @@
 import { useEffect, useState } from 'react';
+import { API } from './api.js';
 import './WorkOrders.css';
-
-const API = 'http://localhost:8080/api';
 
 const STATUS_LABELS = {
   BACKLOG: 'À faire',
   IN_PROGRESS: 'En cours',
   DONE: 'Terminé',
-};
-
-const emptyForm = {
-  title: '',
-  description: '',
-  assignee: '',
-  priority: 2,
-  dueDate: '',
 };
 
 async function apiCall(url, method, body) {
@@ -31,18 +22,20 @@ function WorkOrders({ value: cardId }) {
   const [orders, setOrders] = useState([]);
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState(null);
-  const [showForm, setShowForm] = useState(false);
-  const [form, setForm] = useState(emptyForm);
+  const [showLinker, setShowLinker] = useState(false);
+  const [query, setQuery] = useState('');
+  const [allOrders, setAllOrders] = useState(null);
+  const [linkingId, setLinkingId] = useState(null);
 
   useEffect(() => {
-    if (cardId == null) return;
+    if (typeof cardId !== 'number') return;
     let cancelled = false;
     setLoading(true);
     setError(null);
     fetch(`${API}/work-orders?kanbanCardId=${cardId}`)
-      .then((res) => res.json())
+      .then((res) => (res.ok ? res.json() : Promise.reject(res)))
       .then((data) => {
-        if (!cancelled) setOrders(data);
+        if (!cancelled) setOrders(Array.isArray(data) ? data : []);
       })
       .catch(() => {
         if (!cancelled)
@@ -56,24 +49,39 @@ function WorkOrders({ value: cardId }) {
     };
   }, [cardId]);
 
-  async function handleCreate(ev) {
-    ev.preventDefault();
-    if (!form.title.trim()) return;
+  async function openLinker() {
+    setShowLinker(true);
+    setQuery('');
+    if (allOrders != null) return;
     try {
-      const created = await apiCall(`${API}/work-orders`, 'POST', {
-        title: form.title,
-        description: form.description || null,
-        status: 'BACKLOG',
-        priority: Number(form.priority) || null,
-        assignee: form.assignee || null,
-        dueDate: form.dueDate || null,
-        kanbanCardId: cardId,
-      });
-      setOrders((prev) => [...prev, created]);
-      setForm(emptyForm);
-      setShowForm(false);
+      const data = await apiCall(`${API}/work-orders`, 'GET');
+      setAllOrders(Array.isArray(data) ? data : []);
     } catch {
-      setError("La création de l'ordre de travail a échoué.");
+      setError('Impossible de charger les ordres de travail disponibles.');
+      setAllOrders([]);
+    }
+  }
+
+  async function handleLink(order) {
+    setLinkingId(order.id);
+    try {
+      const updated = await apiCall(
+        `${API}/work-orders/${order.id}/link`,
+        'PATCH',
+        { kanbanCardId: cardId },
+      );
+      setOrders((prev) => [
+        ...prev.filter((o) => o.id !== updated.id),
+        updated,
+      ]);
+      setAllOrders((prev) =>
+        prev ? prev.map((o) => (o.id === updated.id ? updated : o)) : prev,
+      );
+      setShowLinker(false);
+    } catch {
+      setError("La liaison de l'ordre de travail a échoué.");
+    } finally {
+      setLinkingId(null);
     }
   }
 
@@ -97,6 +105,10 @@ function WorkOrders({ value: cardId }) {
       setError("La suppression de l'ordre de travail a échoué.");
     }
   }
+
+  const searchResults = (allOrders ?? [])
+    .filter((o) => o.kanbanCardId !== cardId)
+    .filter((o) => o.title.toLowerCase().includes(query.trim().toLowerCase()));
 
   return (
     <div className="work-orders">
@@ -148,49 +160,44 @@ function WorkOrders({ value: cardId }) {
         </ul>
       )}
 
-      {showForm ? (
-        <form className="work-orders-form" onSubmit={handleCreate}>
+      {showLinker ? (
+        <div className="work-orders-linker">
           <input
             type="text"
-            placeholder="Titre"
-            value={form.title}
-            onChange={(ev) => setForm({ ...form, title: ev.target.value })}
-            required
+            placeholder="Rechercher un ordre de travail par titre…"
+            value={query}
+            onChange={(ev) => setQuery(ev.target.value)}
+            autoFocus
           />
-          <textarea
-            placeholder="Description"
-            value={form.description}
-            onChange={(ev) =>
-              setForm({ ...form, description: ev.target.value })
-            }
-          />
-          <div className="work-orders-form-row">
-            <input
-              type="text"
-              placeholder="Assigné à"
-              value={form.assignee}
-              onChange={(ev) => setForm({ ...form, assignee: ev.target.value })}
-            />
-            <input
-              type="date"
-              value={form.dueDate}
-              onChange={(ev) => setForm({ ...form, dueDate: ev.target.value })}
-            />
-          </div>
+          <ul className="work-orders-linker-results">
+            {allOrders == null ? (
+              <li className="work-orders-empty">Chargement…</li>
+            ) : searchResults.length === 0 ? (
+              <li className="work-orders-empty">Aucun résultat.</li>
+            ) : (
+              searchResults.map((order) => (
+                <li key={order.id} className="work-orders-linker-result">
+                  <span>{order.title}</span>
+                  <button
+                    type="button"
+                    disabled={linkingId === order.id}
+                    onClick={() => handleLink(order)}
+                  >
+                    {linkingId === order.id ? 'Liaison…' : 'Lier'}
+                  </button>
+                </li>
+              ))
+            )}
+          </ul>
           <div className="work-orders-form-actions">
-            <button type="button" onClick={() => setShowForm(false)}>
-              Annuler
+            <button type="button" onClick={() => setShowLinker(false)}>
+              Fermer
             </button>
-            <button type="submit">Ajouter</button>
           </div>
-        </form>
+        </div>
       ) : (
-        <button
-          type="button"
-          className="work-orders-add"
-          onClick={() => setShowForm(true)}
-        >
-          + Nouvel ordre de travail
+        <button type="button" className="work-orders-add" onClick={openLinker}>
+          Lier à un ordre de travail
         </button>
       )}
     </div>

@@ -1,7 +1,6 @@
 import BasicInit from './cases/BasicInit.jsx';
 import Layout from './cases/Layout.jsx';
 import Performance from './cases/Performance.jsx';
-import SaveToBackend from './cases/SaveToBackend.jsx';
 import Filter from './cases/Filter.jsx';
 import GroupBy from './cases/GroupBy.jsx';
 import Editor from './cases/Editor.jsx';
@@ -11,9 +10,9 @@ import CardPopup from './cases/CardPopup.jsx';
 import Styling from './cases/Styling.jsx';
 import Templates from './cases/Templates.jsx';
 import Locales from './cases/Locales.jsx';
-import Excel from './cases/Excel.jsx';
 import Toolbar from './cases/Toolbar.jsx';
 import WorkOrders from './cases/WorkOrders.jsx';
+import WorkOrdersList from './cases/WorkOrdersList.jsx';
 
 export const links = [
   {
@@ -62,18 +61,12 @@ export const links = [
   {
     group: 'Intégration',
     items: [
+      ['/work-orders/:skin', 'Tickets', WorkOrders, { file: 'WorkOrders' }],
       [
-        '/save-to-backend/:skin',
-        'Sauvegarde côté serveur',
-        SaveToBackend,
-        { file: 'SaveToBackend' },
-      ],
-      ['/excel/:skin', 'Import Excel', Excel, { file: 'Excel' }],
-      [
-        '/work-orders/:skin',
+        '/work-orders-list/:skin',
         'Ordres de travail',
-        WorkOrders,
-        { file: 'WorkOrders' },
+        WorkOrdersList,
+        { file: 'WorkOrdersList' },
       ],
     ],
   },

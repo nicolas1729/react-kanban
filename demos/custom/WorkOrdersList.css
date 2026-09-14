@@ -1,0 +1,116 @@
+.work-orders-list-page {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+  padding: 16px;
+  max-width: 640px;
+}
+
+.work-orders-list-title {
+  margin: 0;
+}
+
+.work-orders-list-error {
+  color: var(--wx-color-danger, #d33);
+  font-size: 13px;
+}
+
+.work-orders-list-empty {
+  font-size: 13px;
+  color: var(--wx-color-font-disabled, #888);
+}
+
+.work-orders-list-items {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+
+.work-orders-list-item {
+  border: 1px solid var(--wx-border-color, #e0e0e0);
+  border-radius: 6px;
+  padding: 10px 12px;
+}
+
+.work-orders-list-item-main {
+  display: flex;
+  justify-content: space-between;
+  gap: 8px;
+  align-items: baseline;
+}
+
+.work-orders-list-assignee {
+  font-size: 12px;
+  color: var(--wx-color-font-disabled, #888);
+}
+
+.work-orders-list-description {
+  margin: 4px 0;
+  font-size: 12px;
+  color: var(--wx-color-font-disabled, #666);
+}
+
+.work-orders-list-item-meta {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 10px;
+  margin-top: 6px;
+  font-size: 12px;
+  color: var(--wx-color-font-disabled, #888);
+}
+
+.work-orders-list-delete {
+  margin-left: auto;
+  background: none;
+  border: none;
+  color: var(--wx-color-danger, #d33);
+  cursor: pointer;
+  font-size: 12px;
+  padding: 0;
+}
+
+.work-orders-list-form {
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+  border: 1px dashed var(--wx-border-color, #ccc);
+  border-radius: 6px;
+  padding: 10px 12px;
+}
+
+.work-orders-list-form input,
+.work-orders-list-form textarea {
+  font: inherit;
+  padding: 6px 8px;
+  border: 1px solid var(--wx-border-color, #ccc);
+  border-radius: 4px;
+}
+
+.work-orders-list-form-row {
+  display: flex;
+  gap: 6px;
+}
+
+.work-orders-list-form-row input {
+  flex: 1;
+}
+
+.work-orders-list-form-actions {
+  display: flex;
+  justify-content: flex-end;
+  gap: 8px;
+}
+
+.work-orders-list-add {
+  align-self: flex-start;
+  background: none;
+  border: 1px dashed var(--wx-border-color, #ccc);
+  border-radius: 4px;
+  padding: 6px 10px;
+  cursor: pointer;
+  font-size: 13px;
+}
